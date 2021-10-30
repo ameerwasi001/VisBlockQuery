@@ -114,3 +114,27 @@ Blockly.Blocks["predicate_block"] = {
         this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp')
     }
 }
+
+Blockly.Blocks["no_name_predicate_block"] = {
+    init: function() {
+        this.appendValueInput('COND')
+            .appendField('Given _ condition')
+        this.setColour(160)
+        this.setOutput("Function")
+        this.setInputsInline(true)
+        this.setTooltip('Logs the given value to the console.')
+        this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp')
+    }
+}
+
+Blockly.Blocks['variable_underscore_get'] = {
+    init: function() {
+        this.appendDummyInput('NUM')
+            .appendField('_')
+        this.setColour(330)
+        this.setOutput("Pattern")
+        this.setInputsInline(true)
+        this.setTooltip('Logs the given value to the console.')
+        this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp')
+    }
+}

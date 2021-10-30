@@ -45,3 +45,12 @@ Blockly.JavaScript['predicate_block'] = block => {
     const pred = Blockly.JavaScript.valueToCode(block, 'COND', Blockly.JavaScript.ORDER_FUNCTION_CALL)
     return [`(${id}) => {return ${pred}}`, Blockly.JavaScript.ORDER_FUNCTION_CALL]
 }
+
+Blockly.JavaScript['no_name_predicate_block'] = block => {
+    const pred = Blockly.JavaScript.valueToCode(block, 'COND', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    return [`(_) => {return ${pred}}`, Blockly.JavaScript.ORDER_FUNCTION_CALL]
+}
+
+Blockly.JavaScript['variable_underscore_get'] = block => {
+    return [`_`, Blockly.JavaScript.ORDER_FUNCTION_CALL]
+}
