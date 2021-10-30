@@ -1,0 +1,64 @@
+#blocklyContainer {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+}
+
+#blocklyDiv {
+    width: 100%;
+    height: 100%;
+}
+
+#compiledOutput {
+    border-style: solid;
+    border-radius: 2px;
+    font-size: medium;
+    width: 100%;
+    height: 100%;
+}
+
+#code {
+    padding: 2%;
+}
+
+#last-btn {
+    position: absolute;
+    right: 3%;
+    bottom: 5%;
+}
+
+.round-btn {
+    display:block;
+    width:80px;
+    height:80px;
+    line-height:80px;
+    border: 2px solid #f5f5f5;
+    border-radius: 50%;
+    color:#f5f5f5;
+    text-align:center;
+    text-decoration:none;
+    background: #555777;
+    box-shadow: 0 0 3px gray;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.round-btn:hover {
+    background: #777555;
+}
+
+.section1 {
+	width:50%;
+	float:left;
+	height:100%;
+    box-sizing: border-box;
+    margin:0;
+    padding:0;	
+}
+
+.section2 {
+	width:48%;
+	float:left;
+	height:98%;
+    box-sizing: border-box;
+}
