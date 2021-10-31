@@ -91,6 +91,17 @@ Blockly.Blocks['pattern_num'] = {
 
 Blockly.Blocks['pattern_block'] = {
     init: function() {
+        this.appendValueInput('OBJ')
+            .appendField('Pattern')
+        this.setColour(160)
+        this.setOutput("Pattern")
+        this.setTooltip('Logs the given value to the console.')
+        this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp')
+    }
+}
+
+Blockly.Blocks['obj'] = {
+    init: function() {
         this.appendStatementInput('PAIRS')
             .appendField('values')
         this.setColour(160)
