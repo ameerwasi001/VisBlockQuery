@@ -42,7 +42,7 @@ Blockly.JavaScript['obj'] = block => {
 
 Blockly.JavaScript['pattern_block'] = block => {
     const obj = Blockly.JavaScript.valueToCode(block, 'OBJ', Blockly.JavaScript.ORDER_FUNCTION_CALL)
-    return [`pattern.Pattern(${obj})`, Blockly.JavaScript.ORDER_FUNCTION_CALL]
+    return [`pattern.Pattern(${obj == "" ? "{}" : obj})`, Blockly.JavaScript.ORDER_FUNCTION_CALL]
 }
 
 Blockly.JavaScript['predicate_block'] = block => {
@@ -58,4 +58,32 @@ Blockly.JavaScript['no_name_predicate_block'] = block => {
 
 Blockly.JavaScript['variable_underscore_get'] = block => {
     return [`_`, Blockly.JavaScript.ORDER_FUNCTION_CALL]
+}
+
+// Query language blocks
+
+Blockly.JavaScript['query'] = block => {
+    const dbName = Blockly.JavaScript.valueToCode(block, 'DB_NAME', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    const query = Blockly.JavaScript.statementToCode(block, 'QUERY')
+    return `Graph(${dbName}).query()${query}`
+}
+
+Blockly.JavaScript['vs'] = block => {
+    const pattern = Blockly.JavaScript.valueToCode(block, 'PATTERN', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    return `.vs(${pattern == "" ? "pattern.Any()" : pattern})`
+}
+
+Blockly.JavaScript['v'] = block => {
+    const pattern = Blockly.JavaScript.valueToCode(block, 'PATTERN', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    return `.vs(${pattern == "" ? "pattern.Any()" : pattern})`
+}
+
+Blockly.JavaScript['outs'] = block => {
+    const rel = Blockly.JavaScript.valueToCode(block, 'RELATION', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    return `.outs(${rel})`
+}
+
+Blockly.JavaScript['ins'] = block => {
+    const rel = Blockly.JavaScript.valueToCode(block, 'RELATION', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    return `.ins(${rel})`
 }

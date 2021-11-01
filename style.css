@@ -62,3 +62,7 @@
 	height:98%;
     box-sizing: border-box;
 }
+
+.search {
+    width: 100%;
+}

@@ -33,21 +33,10 @@
 
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
         <category name="Logic" colour="%{BKY_LOGIC_HUE}">
-            <block type="controls_if"></block>
             <block type="logic_compare"></block>
             <block type="logic_operation"></block>
             <block type="logic_negate"></block>
             <block type="logic_boolean"></block>
-        </category>
-        <category name="Loops" colour="%{BKY_LOOPS_HUE}">
-            <block type="controls_repeat_ext">
-                <value name="TIMES">
-                    <block type="math_number">
-                        <field name="NUM">10</field>
-                    </block>
-                </value>
-            </block>
-            <block type="controls_whileUntil"></block>
         </category>
         <category name="Math" colour="%{BKY_MATH_HUE}">
             <block type="math_number">
@@ -60,14 +49,20 @@
             <block type="text"></block>
             <block type="text_length"></block>
         </category>
-        <category name="IO" colour="%{BKY_LOOPS_HUE}">
-            <block type="text_log"></block>
-            <block type="text_print"></block>
-        </category>
         <category name="Pattern" colour="%{BKY_LOOPS_HUE}">
             <block type="pattern_field"></block>
             <block type="pattern_block"></block>
-            <block type="obj"></block>
+            <block type="obj">
+                <statement name="PAIRS">
+                    <block type="pattern_field">
+                        <value name="KEY">
+                            <block type="text">
+                                <field name="TEXT"></field>
+                            </block>
+                        </value>
+                    </block>
+                </statement>
+            </block>
             <block type="no_name_predicate_block"></block>
             <block type="pattern_num"></block>
             <block type="pattern_str"></block>
@@ -77,48 +72,43 @@
             <block type="variable_underscore_get"></block>
             <block type="variables_get"></block>
         </category>
+        <category name="Query" colour="%{BKY_MATH_HUE}">
+            <block type="query">
+                <value name="DB_NAME">
+                    <block type="text">
+                        <field name="TEXT"></field>
+                    </block>
+                </value>
+            </block>
+            <block type="v"></block>
+            <block type="vs"></block>
+            <block type="outs">
+                <value name="RELATION">
+                    <block type="text">
+                        <field name="TEXT"></field>
+                    </block>
+                </value>
+            </block>
+            <block type="ins">
+                <value name="RELATION">
+                    <block type="text">
+                        <field name="TEXT"></field>
+                    </block>
+                </value>
+            </block>
+        </category>
     </xml>
 
     <xml xmlns="https://developers.google.com/blockly/xml" id="startBlocks" style="display: none">
-        <block type="controls_if" inline="false" x="20" y="20">
-            <mutation else="1"></mutation>
-            <value name="IF0">
-                <block type="logic_compare" inline="true">
-                    <field name="OP">EQ</field>
-                    <value name="A">
-                        <block type="math_arithmetic" inline="true">
-                            <field name="OP">MULTIPLY</field>
-                            <value name="A">
-                                <block type="math_number">
-                                    <field name="NUM">6</field>
-                                </block>
-                            </value>
-                            <value name="B">
-                                <block type="math_number">
-                                    <field name="NUM">7</field>
-                                </block>
-                            </value>
-                        </block>
-                    </value>
-                    <value name="B">
-                        <block type="math_number">
-                            <field name="NUM">42</field>
-                        </block>
-                    </value>
+        <block type="query">
+            <value name="DB_NAME">
+                <block type="text">
+                    <field name="TEXT"></field>
                 </block>
             </value>
-            <statement name="DO0">
-                <block type="text_print" inline="false">
-                    <value name="TEXT">
-                        <block type="text">
-                            <field name="TEXT">Don't panic</field>
-                        </block>
-                    </value>
-                </block>
-            </statement>
-            <statement name="ELSE">
-                <block type="text_log">
-                    <value name="VALUE">
+            <statement name="QUERY">
+                <block type="vs">
+                    <value name="PATTERN">
                         <block type="pattern_block">
                             <value name="OBJ">
                                 <block type="obj">
@@ -140,7 +130,7 @@
                                         <block type="pattern_field">
                                             <value name="KEY">
                                                 <block type="text">
-                                                    <field name="TEXT">Age</field>
+                                                    <field name="TEXT">age</field>
                                                 </block>
                                             </value>
                                             <value name="VALUE">
@@ -154,7 +144,7 @@
                             </value>    
                         </block>
                     </value>
-                </block>
+                </block>    
             </statement>
         </block>
     </xml>
