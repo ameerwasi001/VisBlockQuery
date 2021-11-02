@@ -206,3 +206,51 @@ Blockly.Blocks['ins'] = {
         this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp')
     }
 }
+
+Blockly.Blocks['intersect'] = {
+    init: function() {
+        this.appendValueInput('QUERY')
+            .appendField('intersect')
+        this.setColour(QUERY_HUE)
+        this.setPreviousStatement(true)
+        this.setNextStatement(true)
+        this.setTooltip('Logs the given value to the console.')
+        this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp')
+    }
+}
+
+Blockly.Blocks['union'] = {
+    init: function() {
+        this.appendValueInput('QUERY')
+            .appendField('union')
+        this.setColour(QUERY_HUE)
+        this.setPreviousStatement(true)
+        this.setNextStatement(true)
+        this.setTooltip('Logs the given value to the console.')
+        this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp')
+    }
+}
+
+Blockly.Blocks['difference'] = {
+    init: function() {
+        this.appendValueInput('QUERY')
+            .appendField('difference')
+        this.setColour(QUERY_HUE)
+        this.setPreviousStatement(true)
+        this.setNextStatement(true)
+        this.setTooltip('Logs the given value to the console.')
+        this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp')
+    }
+}
+
+Blockly.Blocks['unique'] = {
+    init: function() {
+        this.appendDummyInput('RELATION')
+            .appendField('Unique')
+        this.setColour(QUERY_HUE)
+        this.setPreviousStatement(true)
+        this.setNextStatement(true)
+        this.setTooltip('Logs the given value to the console.')
+        this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp')
+    }
+}

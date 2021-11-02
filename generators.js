@@ -65,7 +65,7 @@ Blockly.JavaScript['variable_underscore_get'] = block => {
 Blockly.JavaScript['query'] = block => {
     const dbName = Blockly.JavaScript.valueToCode(block, 'DB_NAME', Blockly.JavaScript.ORDER_FUNCTION_CALL)
     const query = Blockly.JavaScript.statementToCode(block, 'QUERY')
-    return `Graph(${dbName}).query()${query}`
+    return [`Graph(${dbName}).query()${query}`, Blockly.JavaScript.ORDER_FUNCTION_CALL]
 }
 
 Blockly.JavaScript['vs'] = block => {
@@ -86,4 +86,23 @@ Blockly.JavaScript['outs'] = block => {
 Blockly.JavaScript['ins'] = block => {
     const rel = Blockly.JavaScript.valueToCode(block, 'RELATION', Blockly.JavaScript.ORDER_FUNCTION_CALL)
     return `.ins(${rel})`
+}
+
+Blockly.JavaScript['intersect'] = block => {
+    const query = Blockly.JavaScript.valueToCode(block, 'QUERY', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    return `.intersect(${query})`
+}
+
+Blockly.JavaScript['union'] = block => {
+    const query = Blockly.JavaScript.valueToCode(block, 'QUERY', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    return `.union(${query})`
+}
+
+Blockly.JavaScript['difference'] = block => {
+    const query = Blockly.JavaScript.valueToCode(block, 'QUERY', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    return `.difference(${query})`
+}
+
+Blockly.JavaScript['unique'] = block => {
+    return `.unique()`
 }
