@@ -26,4 +26,5 @@ const runCode = () => {
 workspace.addChangeListener(showCode)
 
 runButtons.forEach(el => el.onclick = runCode)
+
 showCode()

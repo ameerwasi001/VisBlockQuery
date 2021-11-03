@@ -207,6 +207,30 @@ Blockly.Blocks['ins'] = {
     }
 }
 
+Blockly.Blocks['filter'] = {
+    init: function() {
+        this.appendValueInput('PATTERN')
+            .appendField('Matching from result')
+        this.setColour(QUERY_HUE)
+        this.setPreviousStatement(true)
+        this.setNextStatement(true)
+        this.setTooltip('Logs the given value to the console.')
+        this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp')
+    }
+}
+
+Blockly.Blocks['hasTag'] = {
+    init: function() {
+        this.appendValueInput('PATTERN')
+            .appendField('Has tag matching')
+        this.setColour(QUERY_HUE)
+        this.setPreviousStatement(true)
+        this.setNextStatement(true)
+        this.setTooltip('Logs the given value to the console.')
+        this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp')
+    }
+}
+
 Blockly.Blocks['intersect'] = {
     init: function() {
         this.appendValueInput('QUERY')

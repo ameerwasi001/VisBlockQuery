@@ -75,7 +75,17 @@ Blockly.JavaScript['vs'] = block => {
 
 Blockly.JavaScript['v'] = block => {
     const pattern = Blockly.JavaScript.valueToCode(block, 'PATTERN', Blockly.JavaScript.ORDER_FUNCTION_CALL)
-    return `.vs(${pattern == "" ? "pattern.Any()" : pattern})`
+    return `.v(${pattern == "" ? "pattern.Any()" : pattern})`
+}
+
+Blockly.JavaScript['filter'] = block => {
+    const pattern = Blockly.JavaScript.valueToCode(block, 'PATTERN', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    return `.filter(${pattern == "" ? "pattern.Any()" : pattern})`
+}
+
+Blockly.JavaScript['hasTag'] = block => {
+    const pattern = Blockly.JavaScript.valueToCode(block, 'PATTERN', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    return `.hasTag(${pattern == "" ? "pattern.Any()" : pattern})`
 }
 
 Blockly.JavaScript['outs'] = block => {
