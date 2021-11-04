@@ -219,6 +219,27 @@ Blockly.Blocks['filter'] = {
     }
 }
 
+Blockly.Blocks['relatesTo'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField('Towards ')
+            .appendField(new Blockly.FieldDropdown([
+                ['BOTH', 'BOTH'],
+                ['INCOMING', 'INCOMING'],
+                ['OUTGOING', 'OUTGOING']
+            ]), 'SIDE')
+        this.appendValueInput('REL')
+            .appendField('relates')
+        this.appendValueInput('PATTERN')
+            .appendField('to vertex matching')
+        this.setColour(QUERY_HUE)
+        this.setPreviousStatement(true)
+        this.setNextStatement(true)
+        this.setTooltip('Logs the given value to the console.')
+        this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp')
+    }
+}
+
 Blockly.Blocks['hasTag'] = {
     init: function() {
         this.appendValueInput('PATTERN')

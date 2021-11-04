@@ -88,6 +88,13 @@ Blockly.JavaScript['hasTag'] = block => {
     return `.hasTag(${pattern == "" ? "pattern.Any()" : pattern})`
 }
 
+Blockly.JavaScript['relatesTo'] = block => {
+    const side = Blockly.JavaScript.nameDB_.getName(block.getFieldValue('SIDE'), Blockly.VARIABLE_CATEGORY_NAME)
+    const rel = Blockly.JavaScript.valueToCode(block, 'REL', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    const pattern = Blockly.JavaScript.valueToCode(block, 'PATTERN', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    return `.relatesTo(${rel}, ${pattern == "" ? "pattern.Any()" : pattern}, DFSSide.${side.toUpperCase()})`
+}
+
 Blockly.JavaScript['outs'] = block => {
     const rel = Blockly.JavaScript.valueToCode(block, 'RELATION', Blockly.JavaScript.ORDER_FUNCTION_CALL)
     return `.outs(${rel})`
