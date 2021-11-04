@@ -1,5 +1,10 @@
 const QUERY_HUE = 190
 const PATTERN_HUE = 1
+const SIDES = [
+    ['BOTH', 'BOTH'],
+    ['INCOMING', 'INCOMING'],
+    ['OUTGOING', 'OUTGOING']
+]
 
 // Pattern
 Blockly.Blocks['pattern_field'] = {
@@ -223,15 +228,38 @@ Blockly.Blocks['relatesTo'] = {
     init: function() {
         this.appendDummyInput()
             .appendField('Towards ')
-            .appendField(new Blockly.FieldDropdown([
-                ['BOTH', 'BOTH'],
-                ['INCOMING', 'INCOMING'],
-                ['OUTGOING', 'OUTGOING']
-            ]), 'SIDE')
+            .appendField(new Blockly.FieldDropdown(SIDES), 'SIDE')
         this.appendValueInput('REL')
             .appendField('relates')
         this.appendValueInput('PATTERN')
             .appendField('to vertex matching')
+        this.setColour(QUERY_HUE)
+        this.setPreviousStatement(true)
+        this.setNextStatement(true)
+        this.setTooltip('Logs the given value to the console.')
+        this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp')
+    }
+}
+
+Blockly.Blocks['dfs'] = {
+    init: function() {
+        this.appendValueInput('REL')
+            .appendField('Related by')
+        this.appendDummyInput()
+            .appendField('towards')
+            .appendField(new Blockly.FieldDropdown(SIDES), 'SIDE')
+        this.setColour(QUERY_HUE)
+        this.setPreviousStatement(true)
+        this.setNextStatement(true)
+        this.setTooltip('Logs the given value to the console.')
+        this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp')
+    }
+}
+
+Blockly.Blocks['tag'] = {
+    init: function() {
+        this.appendValueInput('ATTR')
+            .appendField('Tag with')
         this.setColour(QUERY_HUE)
         this.setPreviousStatement(true)
         this.setNextStatement(true)

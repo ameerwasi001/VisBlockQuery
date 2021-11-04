@@ -83,26 +83,37 @@ Blockly.JavaScript['filter'] = block => {
     return `.filter(${pattern == "" ? "pattern.Any()" : pattern})`
 }
 
+Blockly.JavaScript['tag'] = block => {
+    const attr = Blockly.JavaScript.valueToCode(block, 'ATTR', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    return `.tag(${attr == "" ? "{}" : attr})`
+}
+
 Blockly.JavaScript['hasTag'] = block => {
     const pattern = Blockly.JavaScript.valueToCode(block, 'PATTERN', Blockly.JavaScript.ORDER_FUNCTION_CALL)
     return `.hasTag(${pattern == "" ? "pattern.Any()" : pattern})`
+}
+
+Blockly.JavaScript['dfs'] = block => {
+    const side = Blockly.JavaScript.nameDB_.getName(block.getFieldValue('SIDE'), Blockly.VARIABLE_CATEGORY_NAME)
+    const rel = Blockly.JavaScript.valueToCode(block, 'REL', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    return `.dfs(${rel == "" ? "\"\"" : rel}, DFSSide.${side.toUpperCase()})`
 }
 
 Blockly.JavaScript['relatesTo'] = block => {
     const side = Blockly.JavaScript.nameDB_.getName(block.getFieldValue('SIDE'), Blockly.VARIABLE_CATEGORY_NAME)
     const rel = Blockly.JavaScript.valueToCode(block, 'REL', Blockly.JavaScript.ORDER_FUNCTION_CALL)
     const pattern = Blockly.JavaScript.valueToCode(block, 'PATTERN', Blockly.JavaScript.ORDER_FUNCTION_CALL)
-    return `.relatesTo(${rel}, ${pattern == "" ? "pattern.Any()" : pattern}, DFSSide.${side.toUpperCase()})`
+    return `.relatesTo(${rel == "" ? "\"\"" : rel}, ${pattern == "" ? "pattern.Any()" : pattern}, DFSSide.${side.toUpperCase()})`
 }
 
 Blockly.JavaScript['outs'] = block => {
     const rel = Blockly.JavaScript.valueToCode(block, 'RELATION', Blockly.JavaScript.ORDER_FUNCTION_CALL)
-    return `.outs(${rel})`
+    return `.outs(${rel == "" ? "\"\"" : rel})`
 }
 
 Blockly.JavaScript['ins'] = block => {
     const rel = Blockly.JavaScript.valueToCode(block, 'RELATION', Blockly.JavaScript.ORDER_FUNCTION_CALL)
-    return `.ins(${rel})`
+    return `.ins(${rel == "" ? "\"\"" : rel})`
 }
 
 Blockly.JavaScript['intersect'] = block => {
