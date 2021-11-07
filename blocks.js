@@ -256,6 +256,30 @@ Blockly.Blocks['dfs'] = {
     }
 }
 
+Blockly.Blocks['take'] = {
+    init: function() {
+        this.appendValueInput('TAKE')
+            .appendField('Take first')
+        this.setColour(QUERY_HUE)
+        this.setPreviousStatement(true)
+        this.setNextStatement(true)
+        this.setTooltip('Logs the given value to the console.')
+        this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp')
+    }
+}
+
+Blockly.Blocks['fromTag'] = {
+    init: function() {
+        this.appendValueInput('PATTERN')
+            .appendField('Values matching tag')
+        this.setColour(QUERY_HUE)
+        this.setPreviousStatement(true)
+        this.setNextStatement(true)
+        this.setTooltip('Logs the given value to the console.')
+        this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp')
+    }
+}
+
 Blockly.Blocks['tag'] = {
     init: function() {
         this.appendValueInput('ATTR')
