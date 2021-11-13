@@ -268,6 +268,18 @@ Blockly.Blocks['take'] = {
     }
 }
 
+Blockly.Blocks['index'] = {
+    init: function() {
+        this.appendValueInput('INDEX')
+            .appendField('Element at')
+        this.setColour(QUERY_HUE)
+        this.setPreviousStatement(true)
+        this.setNextStatement(true)
+        this.setTooltip('Logs the given value to the console.')
+        this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp')
+    }
+}
+
 Blockly.Blocks['fromTag'] = {
     init: function() {
         this.appendValueInput('PATTERN')

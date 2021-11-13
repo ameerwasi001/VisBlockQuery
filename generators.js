@@ -68,6 +68,11 @@ Blockly.JavaScript['query'] = block => {
     return [`Graph(${dbName}).query()${query}`, Blockly.JavaScript.ORDER_FUNCTION_CALL]
 }
 
+Blockly.JavaScript['index'] = block => {
+    const index = Blockly.JavaScript.valueToCode(block, 'INDEX', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    return `.index(${index == "" ? "0" : index})`
+}
+
 Blockly.JavaScript['vs'] = block => {
     const pattern = Blockly.JavaScript.valueToCode(block, 'PATTERN', Blockly.JavaScript.ORDER_FUNCTION_CALL)
     return `.vs(${pattern == "" ? "pattern.Any()" : pattern})`
