@@ -49,9 +49,7 @@
             <block type="text"></block>
             <block type="text_length"></block>
         </category>
-        <category name="Pattern" colour="%{BKY_LOOPS_HUE}">
-            <block type="pattern_field"></block>
-            <block type="pattern_block"></block>
+        <category name="Objects" colour="290">
             <block type="obj">
                 <statement name="PAIRS">
                     <block type="pattern_field">
@@ -63,6 +61,29 @@
                     </block>
                 </statement>
             </block>
+            <block type="property">
+                <value name="PROPERTY">
+                    <block type="text">
+                        <field name="TEXT">name</field>
+                    </block>
+                </value>
+            </block>
+            <block type="pattern_field">
+                <value name="KEY">
+                    <block type="text">
+                        <field name="TEXT">name</field>
+                    </block>
+                </value>
+                <value name="VALUE">
+                    <block type="text">
+                        <field name="TEXT">Victoria</field>
+                    </block>
+                </value>
+            </block>
+        </category>
+        <category name="Pattern" colour="%{BKY_LOOPS_HUE}">
+            <block type="pattern_field"></block>
+            <block type="pattern_block"></block>
             <block type="no_name_predicate_block"></block>
             <block type="pattern_num"></block>
             <block type="pattern_str"></block>

@@ -1,12 +1,37 @@
 const QUERY_HUE = 190
 const PATTERN_HUE = 1
+const OBJECT_HUE = 290
 const SIDES = [
     ['BOTH', 'BOTH'],
     ['INCOMING', 'INCOMING'],
     ['OUTGOING', 'OUTGOING']
 ]
 
-// Pattern
+// Object
+Blockly.Blocks['obj'] = {
+    init: function() {
+        this.appendStatementInput('PAIRS')
+            .appendField('values')
+        this.setColour(OBJECT_HUE)
+        this.setOutput("Pattern")
+        this.setTooltip('Logs the given value to the console.')
+        this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp')
+    }
+}
+
+Blockly.Blocks['property'] = {
+    init: function() {
+        this.appendValueInput('OBJ')
+        this.appendValueInput('PROPERTY')
+            .appendField('.')
+        this.setOutput(true)
+        this.setInputsInline(true)
+        this.setColour(OBJECT_HUE)
+        this.setTooltip('Logs the given value to the console.')
+        this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp')
+    }
+}
+
 Blockly.Blocks['pattern_field'] = {
     init: function() {
         this.appendValueInput('KEY')
@@ -15,7 +40,7 @@ Blockly.Blocks['pattern_field'] = {
         this.appendValueInput('VALUE')
             .setCheck(['String', 'Number'])
             .appendField('to ')
-        this.setColour(PATTERN_HUE)
+        this.setColour(OBJECT_HUE)
         this.setPreviousStatement(true)
         this.setInputsInline(true)
         this.setNextStatement(true)
@@ -24,6 +49,7 @@ Blockly.Blocks['pattern_field'] = {
     }
 }
 
+// Pattern
 Blockly.Blocks['pattern_or'] = {
     init: function() {
         this.appendValueInput('A')
@@ -89,17 +115,6 @@ Blockly.Blocks['pattern_block'] = {
     init: function() {
         this.appendValueInput('OBJ')
             .appendField('Pattern')
-        this.setColour(PATTERN_HUE)
-        this.setOutput("Pattern")
-        this.setTooltip('Logs the given value to the console.')
-        this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp')
-    }
-}
-
-Blockly.Blocks['obj'] = {
-    init: function() {
-        this.appendStatementInput('PAIRS')
-            .appendField('values')
         this.setColour(PATTERN_HUE)
         this.setOutput("Pattern")
         this.setTooltip('Logs the given value to the console.')

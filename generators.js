@@ -1,12 +1,24 @@
-Blockly.JavaScript['text_log'] = block => {
-    const arg = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_FUNCTION_CALL)
-    return "console.log(" + arg + ");\n"
+// Object
+Blockly.JavaScript['obj'] = block => {
+    const obj = Blockly.JavaScript.statementToCode(block, 'PAIRS')
+    return [`{\n${obj}}`, Blockly.JavaScript.ORDER_FUNCTION_CALL]
 }
 
 Blockly.JavaScript['pattern_field'] = block => {
     const key = Blockly.JavaScript.valueToCode(block, 'KEY', Blockly.JavaScript.ORDER_FUNCTION_CALL)
     const val = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_FUNCTION_CALL)
-    return `${key}: ${val},\n`
+    return `${key}: ${val == "" ? "0" : val},\n`
+}
+
+Blockly.JavaScript['property'] = block => {
+    const obj = Blockly.JavaScript.valueToCode(block, 'OBJ', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    const prop = Blockly.JavaScript.valueToCode(block, 'PROPERTY', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    return [`${obj}[${prop == "" ? "" : prop}]`, Blockly.JavaScript.ORDER_ATOMIC]
+}
+// Pattern
+Blockly.JavaScript['text_log'] = block => {
+    const arg = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    return "console.log(" + arg + ");\n"
 }
 
 Blockly.JavaScript['pattern_num'] = block => {
@@ -33,11 +45,6 @@ Blockly.JavaScript['pattern_or'] = block => {
     const a = Blockly.JavaScript.valueToCode(block, 'A', Blockly.JavaScript.ORDER_FUNCTION_CALL)
     const b = Blockly.JavaScript.valueToCode(block, 'B', Blockly.JavaScript.ORDER_FUNCTION_CALL)
     return [`pattern.Or(${a == "" ? "pattern.Any()" : a}, ${b == "" ? "pattern.Any()" : b})`, Blockly.JavaScript.ORDER_FUNCTION_CALL]
-}
-
-Blockly.JavaScript['obj'] = block => {
-    const obj = Blockly.JavaScript.statementToCode(block, 'PAIRS')
-    return [`{\n${obj}}`, Blockly.JavaScript.ORDER_FUNCTION_CALL]
 }
 
 Blockly.JavaScript['pattern_block'] = block => {
