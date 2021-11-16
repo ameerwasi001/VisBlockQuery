@@ -81,8 +81,17 @@
                 </value>
             </block>
         </category>
-        <category name="Pattern" colour="%{BKY_LOOPS_HUE}">
-            <block type="pattern_field"></block>
+        <category name="Pattern" colour="1">
+            <block type="pattern_regex">
+                <value name="REGEX">
+                    <block type="text">
+                        <field name="TEXT">.*</field>
+                    </block>
+                </value>
+                <value name="COMPLETE">
+                    <block type="logic_boolean"></block>
+                </value>
+            </block>
             <block type="pattern_block"></block>
             <block type="no_name_predicate_block"></block>
             <block type="pattern_num"></block>
@@ -93,7 +102,7 @@
             <block type="variable_underscore_get"></block>
             <block type="variables_get"></block>
         </category>
-        <category name="Query" colour="%{BKY_MATH_HUE}">
+        <category name="Query" colour="190">
             <block type="query">
                 <value name="DB_NAME">
                     <block type="text">

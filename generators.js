@@ -15,6 +15,7 @@ Blockly.JavaScript['property'] = block => {
     const prop = Blockly.JavaScript.valueToCode(block, 'PROPERTY', Blockly.JavaScript.ORDER_FUNCTION_CALL)
     return [`${obj}[${prop == "" ? "" : prop}]`, Blockly.JavaScript.ORDER_ATOMIC]
 }
+
 // Pattern
 Blockly.JavaScript['text_log'] = block => {
     const arg = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_FUNCTION_CALL)
@@ -29,6 +30,12 @@ Blockly.JavaScript['pattern_num'] = block => {
 Blockly.JavaScript['pattern_str'] = block => {
     const f = Blockly.JavaScript.valueToCode(block, 'STR', Blockly.JavaScript.ORDER_FUNCTION_CALL)
     return [`pattern.Str(${f})`, Blockly.JavaScript.ORDER_FUNCTION_CALL]
+}
+
+Blockly.JavaScript['pattern_regex'] = block => {
+    const regex = block.getFieldValue('REGEX')
+    const completeness = Blockly.JavaScript.valueToCode(block, 'COMPLETE', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    return [`pattern.RegEx(new RegExp(${regex == "" ? 'new RegExp("")' : `/${regex}/`}), ${completeness == "" ? "true" : completeness})`, Blockly.JavaScript.ORDER_FUNCTION_CALL]
 }
 
 Blockly.JavaScript['pattern_any'] = block => {
@@ -72,7 +79,7 @@ Blockly.JavaScript['variable_underscore_get'] = block => {
 Blockly.JavaScript['query'] = block => {
     const dbName = Blockly.JavaScript.valueToCode(block, 'DB_NAME', Blockly.JavaScript.ORDER_FUNCTION_CALL)
     const query = Blockly.JavaScript.statementToCode(block, 'QUERY')
-    return [`Graph(${dbName}).query()${query}`, Blockly.JavaScript.ORDER_FUNCTION_CALL]
+    return [`new Graph(${dbName}).query()${query}`, Blockly.JavaScript.ORDER_FUNCTION_CALL]
 }
 
 Blockly.JavaScript['index'] = block => {

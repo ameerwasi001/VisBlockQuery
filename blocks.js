@@ -75,6 +75,21 @@ Blockly.Blocks['pattern_str'] = {
     }
 }
 
+Blockly.Blocks['pattern_regex'] = {
+    init: function() {
+        this.appendDummyInput("RegEx")
+            .appendField('Matches')
+            .appendField(new Blockly.FieldTextInput(""), 'REGEX')
+        this.appendValueInput('COMPLETE')
+            .appendField(', completely ')
+        this.setColour(PATTERN_HUE)
+        this.setOutput("Pattern")
+        this.setInputsInline(true)
+        this.setTooltip('Logs the given value to the console.')
+        this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp')
+    }
+}
+
 Blockly.Blocks['pattern_any'] = {
     init: function() {
         this.appendValueInput('VAL')
