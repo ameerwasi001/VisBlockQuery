@@ -14,8 +14,9 @@ Blockly.Blocks['obj'] = {
 Blockly.Blocks['property'] = {
     init: function() {
         this.appendValueInput('OBJ')
-        this.appendValueInput('PROPERTY')
+        this.appendDummyInput("PROP")
             .appendField('.')
+            .appendField(new Blockly.FieldTextInput(""), 'PROPERTY')
         this.setOutput(true)
         this.setInputsInline(true)
         this.setColour(OBJECT_HUE)
@@ -26,11 +27,10 @@ Blockly.Blocks['property'] = {
 
 Blockly.Blocks['pattern_field'] = {
     init: function() {
-        this.appendValueInput('KEY')
-            .setCheck(['String', 'Number'])
-            .appendField('set key ')
+        this.appendDummyInput('KEY')
+            .appendField('set key')
+            .appendField(new Blockly.FieldTextInput(""), 'KEY')
         this.appendValueInput('VALUE')
-            .setCheck(['String', 'Number'])
             .appendField('to ')
         this.setColour(OBJECT_HUE)
         this.setPreviousStatement(true)

@@ -7,8 +7,9 @@ const SIDES = [
 
 Blockly.Blocks['query'] = {
     init: function() {
-        this.appendValueInput('DB_NAME')
+        this.appendDummyInput()
             .appendField('Query on')
+            .appendField(new Blockly.FieldTextInput(""), 'DB_NAME')
         this.appendStatementInput('QUERY')
             .appendField('with')
         this.setColour(QUERY_HUE)
@@ -45,8 +46,9 @@ Blockly.Blocks['v'] = {
 
 Blockly.Blocks['outs'] = {
     init: function() {
-        this.appendValueInput('RELATION')
+        this.appendDummyInput()
             .appendField('outs')
+            .appendField(new Blockly.FieldTextInput(""), 'RELATION')
         this.setColour(QUERY_HUE)
         this.setInputsInline(true)
         this.setPreviousStatement(true)
@@ -58,8 +60,9 @@ Blockly.Blocks['outs'] = {
 
 Blockly.Blocks['ins'] = {
     init: function() {
-        this.appendValueInput('RELATION')
+        this.appendDummyInput()
             .appendField('ins')
+            .appendField(new Blockly.FieldTextInput(""), 'RELATION')
         this.setColour(QUERY_HUE)
         this.setInputsInline(true)
         this.setPreviousStatement(true)
@@ -86,8 +89,9 @@ Blockly.Blocks['relatesTo'] = {
         this.appendDummyInput()
             .appendField('Towards ')
             .appendField(new Blockly.FieldDropdown(SIDES), 'SIDE')
-        this.appendValueInput('REL')
+        this.appendDummyInput()
             .appendField('relates')
+            .appendField(new Blockly.FieldTextInput(""), 'REL')
         this.appendValueInput('PATTERN')
             .appendField('to vertex matching')
         this.setColour(QUERY_HUE)
@@ -100,8 +104,9 @@ Blockly.Blocks['relatesTo'] = {
 
 Blockly.Blocks['dfs'] = {
     init: function() {
-        this.appendValueInput('REL')
+        this.appendDummyInput()
             .appendField('Related by')
+            .appendField(new Blockly.FieldTextInput(""), 'REL')
         this.appendDummyInput()
             .appendField('towards')
             .appendField(new Blockly.FieldDropdown(SIDES), 'SIDE')

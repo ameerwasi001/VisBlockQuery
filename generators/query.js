@@ -1,7 +1,7 @@
 Blockly.JavaScript['query'] = block => {
-    const dbName = Blockly.JavaScript.valueToCode(block, 'DB_NAME', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    const dbName = block.getFieldValue('DB_NAME')
     const query = Blockly.JavaScript.statementToCode(block, 'QUERY')
-    return [`new Graph(${dbName}).query()${query}`, Blockly.JavaScript.ORDER_FUNCTION_CALL]
+    return [`new Graph("${JSON.stringify(dbName).slice(1, -1)}").query()${query}`, Blockly.JavaScript.ORDER_FUNCTION_CALL]
 }
 
 Blockly.JavaScript['index'] = block => {
@@ -41,25 +41,25 @@ Blockly.JavaScript['fromTag'] = block => {
 
 Blockly.JavaScript['dfs'] = block => {
     const side = Blockly.JavaScript.nameDB_.getName(block.getFieldValue('SIDE'), Blockly.VARIABLE_CATEGORY_NAME)
-    const rel = Blockly.JavaScript.valueToCode(block, 'REL', Blockly.JavaScript.ORDER_FUNCTION_CALL)
-    return `.dfs(${rel == "" ? "\"\"" : rel}, DFSSide.${side.toUpperCase()})`
+    const rel = block.getFieldValue('REL')
+    return `.dfs(${rel == "" ? "''" : JSON.stringify(rel)}, DFSSide.${side.toUpperCase()})`
 }
 
 Blockly.JavaScript['relatesTo'] = block => {
     const side = Blockly.JavaScript.nameDB_.getName(block.getFieldValue('SIDE'), Blockly.VARIABLE_CATEGORY_NAME)
-    const rel = Blockly.JavaScript.valueToCode(block, 'REL', Blockly.JavaScript.ORDER_FUNCTION_CALL)
+    const rel = block.getFieldValue('REL')
     const pattern = Blockly.JavaScript.valueToCode(block, 'PATTERN', Blockly.JavaScript.ORDER_FUNCTION_CALL)
-    return `.relatesTo(${rel == "" ? "\"\"" : rel}, ${pattern == "" ? "pattern.Any()" : pattern}, DFSSide.${side.toUpperCase()})`
+    return `.relatesTo(${rel == "" ? "''" : JSON.stringify(rel)}, ${pattern == "" ? "pattern.Any()" : pattern}, DFSSide.${side.toUpperCase()})`
 }
 
 Blockly.JavaScript['outs'] = block => {
-    const rel = Blockly.JavaScript.valueToCode(block, 'RELATION', Blockly.JavaScript.ORDER_FUNCTION_CALL)
-    return `.outs(${rel == "" ? "\"\"" : rel})`
+    const rel = block.getFieldValue('RELATION')
+    return `.outs(${rel == "" ? "''" : JSON.stringify(rel)})`
 }
 
 Blockly.JavaScript['ins'] = block => {
-    const rel = Blockly.JavaScript.valueToCode(block, 'RELATION', Blockly.JavaScript.ORDER_FUNCTION_CALL)
-    return `.ins(${rel == "" ? "\"\"" : rel})`
+    const rel = block.getFieldValue('RELATION')
+    return `.ins(${rel == "" ? "''" : JSON.stringify(rel)})`
 }
 
 Blockly.JavaScript['intersect'] = block => {
