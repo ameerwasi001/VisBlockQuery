@@ -122,6 +122,7 @@ Blockly.Blocks['take'] = {
     init: function() {
         this.appendValueInput('TAKE')
             .appendField('Take first')
+            .setCheck("Number")
         this.setColour(QUERY_HUE)
         this.setPreviousStatement(true)
         this.setNextStatement(true)
@@ -134,6 +135,7 @@ Blockly.Blocks['index'] = {
     init: function() {
         this.appendValueInput('INDEX')
             .appendField('Element at')
+            .setCheck("Number")
         this.setColour(QUERY_HUE)
         this.setPreviousStatement(true)
         this.setNextStatement(true)
