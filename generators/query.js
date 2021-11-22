@@ -1,7 +1,7 @@
 Blockly.JavaScript['query'] = block => {
     const dbName = block.getFieldValue('DB_NAME')
     const query = Blockly.JavaScript.statementToCode(block, 'QUERY')
-    return [`new Graph("${JSON.stringify(dbName).slice(1, -1)}").query()${query}`, Blockly.JavaScript.ORDER_FUNCTION_CALL]
+    return [`new Graph(${JSON.stringify(dbName)}").query()${query}`, Blockly.JavaScript.ORDER_FUNCTION_CALL]
 }
 
 Blockly.JavaScript['index'] = block => {
